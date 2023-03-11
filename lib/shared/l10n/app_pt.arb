@@ -1,0 +1,30 @@
+{
+  "welcome": "Bem-vindo \nao FlutterFloripa!",
+   "@welcome": {
+    "description": "welcome text"
+    },
+  "descriptionLogin": "A comunidade oficial Flutter em \nFlorianópolis-SC",
+    "@descriptionLogin": {
+    "description": "description Login"
+    },
+  "emailHint": "E-mail",
+    "@emailHint": {
+    "description": "email hint"
+    },
+  "passwordHint": "Senha",
+    "@passwordHint": {
+    "description": "password hint"
+    },
+  "enter": "Entrar",
+    "@enter": {
+    "description": "enter text"
+    },
+  "caption1": "Esqueceu sua senha? ",
+    "@caption1": {
+    "description": "caption1 text"
+    },
+  "caption2": "Recupere aqui",
+    "@caption2": {
+    "description": "caption2 text"
+    }
+}
