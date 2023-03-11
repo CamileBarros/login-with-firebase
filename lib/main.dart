@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_app/features/home/page/home_page.dart';
 import 'package:my_app/features/login/pages/login_page.dart';
 import 'package:my_app/features/login/pages/login_page_provider.dart';
+import 'package:my_app/features/splash_screen/splash_screen_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -23,10 +24,11 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        initialRoute: '/login',
+        initialRoute: '/splashScreen',
         routes: {
-          '/home': (context) => const HomePage(),
+          '/splashScreen': (context) => const SplashScreenPage(),
           '/login': (context) => const LoginPage(),
+          '/home': (context) => const HomePage(),
         },
         localizationsDelegates: const [
           AppLocalizations.delegate,

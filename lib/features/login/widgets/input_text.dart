@@ -17,7 +17,8 @@ class InputText extends StatelessWidget {
       this.hasSuffixIcon = false,
       this.suffixIcon,
       this.preffixIcon,
-      this.visibility = false, this.onTap});
+      this.visibility = false,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,9 @@ class InputText extends StatelessWidget {
         hintText: hintText,
         hintStyle:
             AppTextStyle.subtitle.copyWith(color: AppColors.textColorTertiary),
-        focusedBorder: InputBorder.none,
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: AppColors.inputBoxColor)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: AppColors.inputBoxColor),

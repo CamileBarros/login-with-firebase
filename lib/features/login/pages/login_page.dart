@@ -6,6 +6,7 @@ import 'package:my_app/features/login/pages/login_page_provider.dart';
 import 'package:my_app/features/login/widgets/button_primary.dart';
 import 'package:my_app/features/login/widgets/input_text.dart';
 import 'package:my_app/shared/colors/app_colors.dart';
+import 'package:my_app/shared/icons/app_icons.dart';
 import 'package:my_app/shared/textStyle/app_text_style.dart';
 import 'package:provider/provider.dart';
 
@@ -36,10 +37,10 @@ class _LoginPageState extends State<LoginPage> {
     final translate = AppLocalizations.of(context);
 
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.only(top: 74, left: 16, right: 16, bottom: 32),
-      child: SingleChildScrollView(
-        child: Column(
+        body: SingleChildScrollView(
+          child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 74, 16, 32),
+              child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -53,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 116,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(24, 26, 30, 24),
-                child: SvgPicture.asset('assets/images/ic_flutter.svg'),
+                child: SvgPicture.asset(AppIcons.iconLogoFlutter),
               ),
             ),
             const SizedBox(
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   : Icons.visibility_off_outlined,
               onTap: () {
                 loginPageProvider.isVisible = !loginPageProvider.isVisible;
-
+        
                 setState(() {});
               },
             ),
@@ -131,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
             )
           ],
-        ),
-      ),
-    ));
+              ),
+            ),
+        ));
   }
 }
