@@ -2,22 +2,26 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:my_app/login/widgets/button_primary.dart';
-import 'package:my_app/login/widgets/input_text.dart';
+import 'package:my_app/features/login/pages/login_page_provider.dart';
+import 'package:my_app/features/login/widgets/button_primary.dart';
+import 'package:my_app/features/login/widgets/input_text.dart';
 import 'package:my_app/shared/colors/app_colors.dart';
 import 'package:my_app/shared/textStyle/app_text_style.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({
+    super.key,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late LoginPageProvider loginPageProvider;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
 
   @override
   void dispose() {
@@ -28,7 +32,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    loginPageProvider = Provider.of<LoginPageProvider>(context);
     final translate = AppLocalizations.of(context);
+
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.only(top: 74, left: 16, right: 16, bottom: 32),
@@ -69,16 +75,36 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 48,
             ),
-            InputText(hintText: translate.emailHint, textController: emailController),
+            InputText(
+              hintText: translate.emailHint,
+              textController: emailController,
+              preffixIcon: Icons.email_outlined,
+            ),
             const SizedBox(
               height: 16,
             ),
-            InputText(hintText: translate.passwordHint, textController: passwordController),
+            InputText(
+              hintText: translate.passwordHint,
+              textController: passwordController,
+              preffixIcon: Icons.lock_outline,
+              hasSuffixIcon: true,
+              visibility: loginPageProvider.isVisible,
+              suffixIcon: loginPageProvider.isVisible
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              onTap: () {
+                loginPageProvider.isVisible = !loginPageProvider.isVisible;
+
+                setState(() {});
+              },
+            ),
             const SizedBox(
               height: 72,
             ),
             ButtonPrimary(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/home');
+              },
               text: translate.enter,
             ),
             const SizedBox(
